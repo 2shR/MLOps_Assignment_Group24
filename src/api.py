@@ -6,6 +6,11 @@ import pandas as pd
 import traceback
 import time
 import sqlite3
+import logging
+
+
+logging.basicConfig(filename='api.log', level=logging.INFO)
+
 
 app = Flask(__name__)
 
@@ -38,7 +43,8 @@ def predict():
         input_df = pd.DataFrame([input_json])
         prediction = model.predict(input_df)
         latency = (time.time() - start_time) * 1000
-
+		# Logging to log file
+        logging.info(f"Request: {input_json} | Prediction: {prediction.tolist()} | Latency: {latency} ms")
         # Logging to SQLite
         cursor.execute(
             "INSERT INTO logs (timestamp, input_json, prediction, latency_ms) VALUES (datetime('now'), ?, ?, ?)",
