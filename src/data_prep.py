@@ -1,8 +1,7 @@
-# src/data_prep.py
-
 import pandas as pd
 from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
+
 
 def load_data():
     housing = fetch_california_housing(as_frame=True)
@@ -22,9 +21,9 @@ def save_datasets(X_train, X_test, y_train, y_test):
     y_train.to_csv("data/processed/y_train.csv", index=False)
     y_test.to_csv("data/processed/y_test.csv", index=False)
 
-if __name__ == "__main__":
-    df = load_data()
-    df.to_csv("data/raw/california_housing.csv", index=False)
-    
-    X_train, X_test, y_train, y_test = preprocess_data(df)
-    save_datasets(X_train, X_test, y_train, y_test)
+
+df = load_data()
+df.to_csv("data/raw/california_housing.csv", index=False)
+
+X_train, X_test, y_train, y_test = preprocess_data(df)
+save_datasets(X_train, X_test, y_train, y_test)

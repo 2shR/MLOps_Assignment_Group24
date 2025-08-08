@@ -1,0 +1,14 @@
+artifact_uri: file:///E:/Assignment/MLOps_Assignment_Group24/mlruns/553568425853954943/db0bf9f94abf49f3b7e449aa4a4b22fa/artifacts
+end_time: 1754677218103
+entry_point_name: ''
+experiment_id: '553568425853954943'
+lifecycle_stage: active
+run_id: db0bf9f94abf49f3b7e449aa4a4b22fa
+run_name: LinearRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754677212680
+status: 3
+tags: []
+user_id: kartavya

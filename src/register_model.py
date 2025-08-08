@@ -15,6 +15,6 @@ run_id = best_run.info.run_id
 
 # Register model
 model_uri = f"runs:/{run_id}/model"
-mlflow.register_model(model_uri, model_name)
+result = mlflow.register_model(model_uri=model_uri, name=model_name)
 
-print(f"Registered model from run {run_id}")
+print(f"Registered model from run {run_id}", f"Model registered as '{result.name}'")

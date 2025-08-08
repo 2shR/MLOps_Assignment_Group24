@@ -1,0 +1,14 @@
+artifact_uri: file:///E:/Assignment/MLOps_Assignment_Group24/mlruns/553568425853954943/7b068ccfd78b4f129e54e3dac279028b/artifacts
+end_time: 1754630596665
+entry_point_name: ''
+experiment_id: '553568425853954943'
+lifecycle_stage: active
+run_id: 7b068ccfd78b4f129e54e3dac279028b
+run_name: DecisionTree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754630592489
+status: 3
+tags: []
+user_id: kartavya

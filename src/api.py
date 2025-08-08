@@ -7,16 +7,18 @@ import traceback
 import time
 import sqlite3
 import logging
-
+from mlflow.tracking import MlflowClient
+import mlflow.pyfunc
 
 logging.basicConfig(filename='api.log', level=logging.INFO)
 
-
-app = Flask(__name__)
-
 # Load the MLflow model
 MODEL_NAME = "BestCaliforniaHousingModel"
-model = mlflow.pyfunc.load_model(f"models:/{MODEL_NAME}/Production")
+client = MlflowClient()
+app = Flask(__name__)
+latest_version = client.get_latest_versions(MODEL_NAME)[0].version
+
+model = mlflow.pyfunc.load_model(f"models:/{MODEL_NAME}/{latest_version}")
 
 # Connect to SQLite DB (local file)
 conn = sqlite3.connect("logs.db", check_same_thread=False)
@@ -38,6 +40,7 @@ conn.commit()
 @app.route("/predict", methods=["POST"])
 def predict():
     start_time = time.time()
+    print(start_time)
     try:
         input_json = request.get_json()
         input_df = pd.DataFrame([input_json])
@@ -71,5 +74,10 @@ def metrics():
     })
 
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"message": "API is up and running!"})
+
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=8081)

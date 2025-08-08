@@ -4,7 +4,7 @@
 docker rm -f housing-api || true
 
 # Pull latest image from Docker Hub
-docker pull <your-docker-username>/housing-api:latest
+docker pull tusharrastogi/housing-api:latest
 
 # Run new container
-docker run -d -p 5000:5000 --name housing-api <your-docker-username>/housing-api:latest
+docker run -d -p 8080:8080 --name housing-api tusharrastogi/housing-api:latest

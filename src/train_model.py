@@ -1,5 +1,5 @@
 # src/train_model.py
-
+import numpy as np
 import pandas as pd
 import mlflow
 import mlflow.sklearn
@@ -16,6 +16,7 @@ y_test = pd.read_csv("data/processed/y_test.csv").values.ravel()
 
 def eval_and_log(model, name, params=None):
     with mlflow.start_run(run_name=name):
+        mlflow.set_tag("mlflow.user", "Tushar Rastogi, Satyam Shukla, Prithviraj Pradhan, Shrabana Kumar")
         # Log parameters
         if params:
             mlflow.log_params(params)
@@ -29,14 +30,15 @@ def eval_and_log(model, name, params=None):
         y_pred = model.predict(X_test)
 
         # Metrics
-        rmse = mean_squared_error(y_test, y_pred, squared=False)
+        mse = mean_squared_error(y_test, y_pred)
+        rmse = np.sqrt(mse)
         r2 = r2_score(y_test, y_pred)
 
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("r2", r2)
 
         # Log model
-        mlflow.sklearn.log_model(model, artifact_path="model")
+        mlflow.sklearn.log_model(model, name="model")
 
         print(f"{name} - RMSE: {rmse:.3f}, R2: {r2:.3f}")
 

@@ -1,0 +1,10 @@
+artifact_location: file:///E:/Assignment/MLOps_Assignment_Group24/mlruns/553568425853954943/models/m-7300d32ff64d4b1c872ecb41abe6419e/artifacts
+creation_timestamp: 1754672540075
+experiment_id: '553568425853954943'
+last_updated_timestamp: 1754672544328
+model_id: m-7300d32ff64d4b1c872ecb41abe6419e
+model_type: null
+name: model
+source_run_id: 29f67bd392b4428fb0dfb02e69e4861e
+status: 2
+status_message: null
