@@ -84,7 +84,7 @@ The project follows an **end-to-end MLOps pipeline** for the California Housing 
 
 ### **1. Repository and Data Versioning**
 - **Dataset**: California Housing dataset.
-- **Data Versioning**: Using DVC, data versioning is achieved
+- **Data Versioning**: Using DVC, data versioning is achieved and only pushed lightweight dvc files instead of actual datasets.
 - **Directory Structure**: Shown above
 
 ### **2. Model Development & Experiment Tracking**
