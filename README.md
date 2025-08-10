@@ -82,24 +82,30 @@ MLOps_Assignment_Group24/
 
 The project follows an **end-to-end MLOps pipeline** for the California Housing dataset, covering model development, deployment, and monitoring.
 
-### **1. Data & Model**
+### **1. Repository and Data Versioning**
 - **Dataset**: California Housing dataset.
-- **Model Training**: Uses `scikit-learn` for training a regression model.
-- **Experiment Tracking**: Managed using **MLflow** with local `mlruns` folder.
+- **Data Versioning**: Using DVC, data versioning is achieved
+- **Directory Structure**: Shown above
 
-### **2. Deployment**
+### **2. Model Development & Experiment Tracking**
+- **Model Training**: Uses `scikit-learn` for training linear regression and decision tree models.
+- **Experiment Tracking**: Managed using **MLflow** with locally saved `mlflow.db` using sqlite.
+
+### **3. API & Docker Packaging**
 - **API Framework**: Flask-based REST API.
 - **Containerization**: Docker used to package the app and model.
 - **Port Mapping**: Application exposed at `http://localhost:8081`.
 
-### **3. CI/CD**
+### **4. CI/CD with GitHub Actions**
+- **Lint Analysis**: Using `flake8` code analysis
 - **GitHub Actions**: Automates testing, building, and pushing Docker images to Docker Hub.
 
-### **4. Monitoring**
-- **Prometheus**: Collects metrics from the running API.
-- **Grafana**: (Optional) For visualizing metrics dashboards.
+### **5. Logging and Monitoring**
+- **Logging**: Logging all the requests and output for Predict endpoint.
+- **Application Metrics**: All the metrics of the application are logged and can be viewed under /metrics endpoint.
+- **Persisting Logs**: Persisting all the logs to `file` and sqlite locally stored db `logs.db`
 
-### **5. Pipeline Workflow**
+### **6. Pipeline Workflow**
 ```mermaid
 flowchart TD
     A[Data Source: California Housing] --> B[Data Preprocessing]
