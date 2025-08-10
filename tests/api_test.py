@@ -1,5 +1,9 @@
 import pytest
-from src.api import app
+from unittest.mock import patch
+
+# Patch MlflowClient and pyfunc.load_model before importing app
+with patch("mlflow.tracking.MlflowClient"), patch("mlflow.pyfunc.load_model"):
+    from src.api import app
 
 @pytest.fixture
 def client():
