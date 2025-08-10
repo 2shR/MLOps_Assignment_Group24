@@ -11,7 +11,12 @@ def test_home(client):
     response = client.get("/")
     assert response.status_code == 200
 
-def test_predict_post(client):
-    # Replace with actual expected input for your model
-    response = client.post("/predict", json={"feature1": 1, "feature2": 2})
-    assert response.status_code in (200, 400)  # Adjust as needed
+def test_predict_post_200(client):
+    response = client.post("/predict", json={ "MedInc": 8.3252, "HouseAge": 41.0, "AveRooms": 6.9841, "AveBedrms": 1.0238, "Population": 322.0, "AveOccup": 2.5556, "Latitude": 37.88, "Longitude": -122.23})
+    assert response.status_code == 200 
+
+def test_predict_post_Error(client):
+    response = client.post("/predict", json={ "test":1.0})
+    data = response.get_json()
+    assert "error" in data
+    assert data["error"] # This checks that the value is not empty or falsy 

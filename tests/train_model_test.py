@@ -21,4 +21,4 @@ def test_decision_tree_fit_predict():
     model = DecisionTreeRegressor(max_depth=2)
     model.fit(X_train, y_train)
     preds = model.predict(X_test)
-    assert len(preds) ==
+    assert len(preds) == len(X_test)
