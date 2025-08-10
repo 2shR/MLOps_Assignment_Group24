@@ -50,6 +50,6 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/housing-api:latest
       
       - name: Deploy using deploy.ps1
-        shell: pwsh
+        shell: powershell
         run: |
           ./deploy.ps1
