@@ -8,8 +8,10 @@ import sqlite3
 import logging
 from mlflow.tracking import MlflowClient
 import mlflow.pyfunc
+import os
 
 
+# Define the input schema using Pydantic
 class HousingInput(BaseModel):
     MedInc: float
     HouseAge: float
@@ -22,7 +24,9 @@ class HousingInput(BaseModel):
 
 
 logging.basicConfig(filename='api.log', level=logging.INFO)
-mlflow.set_tracking_uri("http://host.docker.internal:5000")
+mlflow.set_tracking_uri(
+    os.getenv("MLFLOW_TRACKING_URI", "http://host.docker.internal:5000")
+)
 
 # Load the MLflow model
 MODEL_NAME = "BestCaliforniaHousingModel"
