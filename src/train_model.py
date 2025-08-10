@@ -8,11 +8,13 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 import os
 
+
 # Load data
 X_train = pd.read_csv("data/processed/X_train.csv")
 X_test = pd.read_csv("data/processed/X_test.csv")
 y_train = pd.read_csv("data/processed/y_train.csv").values.ravel()
 y_test = pd.read_csv("data/processed/y_test.csv").values.ravel()
+
 
 def eval_and_log(model, name, params=None):
     with mlflow.start_run(run_name=name):
@@ -42,17 +44,16 @@ def eval_and_log(model, name, params=None):
 
         print(f"{name} - RMSE: {rmse:.3f}, R2: {r2:.3f}")
 
+
 if __name__ == "__main__":
     mlflow.set_tracking_uri("http://127.0.0.1:5000")
     os.environ["MLFLOW_TRACKING_URI"] = "http://127.0.0.1:5000"
     os.environ["MLFLOW_EXPERIMENT_NAME"] = "California Housing Regression"
     os.environ["MLFLOW_ARTIFACT_ROOT"] = "/app/mlruns"
     mlflow.set_experiment("California Housing Regression")
-    
     # Linear Regression
     lr_model = LinearRegression()
     eval_and_log(lr_model, "LinearRegression")
-
     # Decision Tree
     dt_model = DecisionTreeRegressor(max_depth=5)
     eval_and_log(dt_model, "DecisionTree", params={"max_depth": 5})

@@ -1,5 +1,4 @@
-# src/api.py
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel
 from flask import Flask, request, jsonify
 import mlflow
 import pandas as pd
@@ -10,6 +9,7 @@ import logging
 from mlflow.tracking import MlflowClient
 import mlflow.pyfunc
 
+
 class HousingInput(BaseModel):
     MedInc: float
     HouseAge: float
@@ -19,6 +19,7 @@ class HousingInput(BaseModel):
     AveOccup: float
     Latitude: float
     Longitude: float
+
 
 logging.basicConfig(filename='api.log', level=logging.INFO)
 mlflow.set_tracking_uri("http://host.docker.internal:5000")
@@ -54,12 +55,12 @@ def predict():
     print(start_time)
     try:
         input_json = request.get_json()
-        #Input fields validation
+        # Input fields validation
         validated = HousingInput(**input_json)
         input_df = pd.DataFrame([validated.dict()])
         prediction = model.predict(input_df)
         latency = (time.time() - start_time) * 1000
-		# Logging to log file
+        # Logging to file
         logging.info(f"Request: {input_json} | Prediction: {prediction.tolist()} | Latency: {latency} ms")
         # Logging to SQLite
         cursor.execute(
