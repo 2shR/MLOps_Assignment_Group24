@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/
+          python -m pytest/
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
