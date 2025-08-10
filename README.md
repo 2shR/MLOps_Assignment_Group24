@@ -90,6 +90,7 @@ The project follows an **end-to-end MLOps pipeline** for the California Housing 
 ### **2. Model Development & Experiment Tracking**
 - **Model Training**: Uses `scikit-learn` for training linear regression and decision tree models.
 - **Experiment Tracking**: Managed using **MLflow** with locally saved `mlflow.db` using sqlite.
+- **Model Registry**: Registering best performing model for predictions.
 
 ### **3. API & Docker Packaging**
 - **API Framework**: Flask-based REST API.
