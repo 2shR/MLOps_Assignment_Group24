@@ -97,6 +97,4 @@ flowchart TD
     C --> D[MLflow Tracking & Model Registry]
     D --> E[Dockerized Flask API]
     E --> F[Deployment: Local/Docker Hub]
-    F --> G[Prometheus Metrics Collection]
-    G --> H[Grafana Dashboard]
 
