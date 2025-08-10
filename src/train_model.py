@@ -18,8 +18,10 @@ y_test = pd.read_csv("data/processed/y_test.csv").values.ravel()
 
 def eval_and_log(model, name, params=None):
     with mlflow.start_run(run_name=name):
-        mlflow.set_tag("mlflow.user", 
-        "Tushar Rastogi, Satyam Shukla, Prithviraj Pradhan, Shrabana Kumar")
+        mlflow.set_tag(
+            "mlflow.user",
+            "Tushar Rastogi, Satyam Shukla, Prithviraj Pradhan, Shrabana Kumar"
+        )
         # Log parameters
         if params:
             mlflow.log_params(params)
