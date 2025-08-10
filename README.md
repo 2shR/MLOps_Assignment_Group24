@@ -3,6 +3,9 @@ Group No 24 MLOps Assignment:
 | S.No | Name | BITS ID | Contribution |
 |------|------|------|------|
 | 1 | Tushar Rastogi | 2023AC05786 | 100% |
+| 2 | Satyam Shukla | 2023AC05822 | 100% |
+| 1 | Prithviraj Pradhan | 2023AC05770 | 100% |
+| 1 | Shrabana Kumar | 2023AC05033 | 100% |
 
 # End-to-End MLOps Pipeline – California Housing
 
