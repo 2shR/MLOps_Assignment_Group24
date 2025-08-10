@@ -107,6 +107,7 @@ The project follows an **end-to-end MLOps pipeline** for the California Housing 
 ### **4. CI/CD with GitHub Actions**
 - **Lint Analysis**: Using `flake8` code analysis
 - **GitHub Actions**: Automates testing, building, and pushing Docker images to Docker Hub.
+- **Deployment**: Deploying ocally, through github actions to self-hosted runner local machine
 
 ### **5. Logging and Monitoring**
 - **Logging**: Logging all the requests and output for Predict endpoint.
