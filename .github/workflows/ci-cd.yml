@@ -27,7 +27,7 @@ jobs:
           flake8 src/
 
       - name: Start MLflow server
-        shell: pwsh
+        shell: powershell
         run: |
           Start-Process -NoNewWindow -FilePath "mlflow" -ArgumentList "server --backend-store-uri sqlite:///mlflow.db --host 0.0.0.0 --port 5000"
           Start-Sleep -Seconds 10
