@@ -61,10 +61,15 @@ def predict():
         prediction = model.predict(input_df)
         latency = (time.time() - start_time) * 1000
         # Logging to file
-        logging.info(f"Request: {input_json} | Prediction: {prediction.tolist()} | Latency: {latency} ms")
+        logging.info(
+            f"Request: {input_json} | Prediction: {prediction.tolist()} | "
+            f"Latency: {latency} ms"
+        )
+        # Logging to SQLite
         # Logging to SQLite
         cursor.execute(
-            "INSERT INTO logs (timestamp, input_json, prediction, latency_ms) VALUES (datetime('now'), ?, ?, ?)",
+            "INSERT INTO logs (timestamp, input_json, prediction, latency_ms) "
+            "VALUES (datetime('now'), ?, ?, ?)",
             (str(input_json), str(prediction.tolist()), latency)
         )
         conn.commit()

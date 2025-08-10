@@ -10,7 +10,8 @@ model_name = "BestCaliforniaHousingModel"
 
 client = mlflow.tracking.MlflowClient()
 experiment = client.get_experiment_by_name(experiment_name)
-runs = client.search_runs(experiment.experiment_id, order_by=["metrics.rmse ASC"])
+runs = client.search_runs(experiment.experiment_id, 
+                        order_by=["metrics.rmse ASC"])
 
 # Best run (lowest RMSE)
 best_run = runs[0]
