@@ -1,6 +1,6 @@
 # Stop and remove the existing container if it exists
-docker stop housing-api -ErrorAction SilentlyContinue
-docker rm housing-api -ErrorAction SilentlyContinue
+docker stop housing-api 2>$null
+docker rm -f housing-api 2>$null
 
 # Pull latest image from Docker Hub
 docker pull tusharrastogi/housing-api:latest

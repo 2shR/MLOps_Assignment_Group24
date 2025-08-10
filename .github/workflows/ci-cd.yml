@@ -53,9 +53,3 @@ jobs:
         shell: powershell
         run: |
           ./deploy.ps1
-    
-      - name: Stop MLflow server
-        if: always()
-        shell: powershell
-        run: |
-          Get-Process mlflow -ErrorAction SilentlyContinue | Stop-Process -Force
