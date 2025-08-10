@@ -100,6 +100,7 @@ The project follows an **end-to-end MLOps pipeline** for the California Housing 
 
 ### **3. API & Docker Packaging**
 - **API Framework**: Flask-based REST API.
+- **Validation**: Input validation using pydantic
 - **Containerization**: Docker used to package the app and model.
 - **Port Mapping**: Application exposed at `http://localhost:8081`.
 
