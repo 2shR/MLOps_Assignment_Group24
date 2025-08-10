@@ -1,5 +1,8 @@
 # MLOps_Assignment_Group24
-Group No 24 MLOps Assignment
+Group No 24 MLOps Assignment:
+| S.No | Name | BITS ID | Contribution |
+|------|------|------|------|
+| 1 | Tushar Rastogi | 2023AC05786 | 100% |
 
 # End-to-End MLOps Pipeline – California Housing
 
