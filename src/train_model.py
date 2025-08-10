@@ -43,8 +43,12 @@ def eval_and_log(model, name, params=None):
         print(f"{name} - RMSE: {rmse:.3f}, R2: {r2:.3f}")
 
 if __name__ == "__main__":
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    os.environ["MLFLOW_TRACKING_URI"] = "http://127.0.0.1:5000"
+    os.environ["MLFLOW_EXPERIMENT_NAME"] = "California Housing Regression"
+    os.environ["MLFLOW_ARTIFACT_ROOT"] = "/app/mlruns"
     mlflow.set_experiment("California Housing Regression")
-
+    
     # Linear Regression
     lr_model = LinearRegression()
     eval_and_log(lr_model, "LinearRegression")

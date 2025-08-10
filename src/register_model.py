@@ -2,6 +2,9 @@
 
 import mlflow
 
+# Set the MLflow tracking URI to match your MLflow server
+mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
 experiment_name = "California Housing Regression"
 model_name = "BestCaliforniaHousingModel"
 
@@ -17,4 +20,4 @@ run_id = best_run.info.run_id
 model_uri = f"runs:/{run_id}/model"
 result = mlflow.register_model(model_uri=model_uri, name=model_name)
 
-print(f"Registered model from run {run_id}", f"Model registered as '{result.name}'")
+print(f"Registered model from run {run_id}")

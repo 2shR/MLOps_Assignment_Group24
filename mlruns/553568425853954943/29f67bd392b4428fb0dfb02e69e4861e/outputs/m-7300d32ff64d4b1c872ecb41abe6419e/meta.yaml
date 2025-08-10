@@ -1,6 +1,0 @@
-destination_id: m-7300d32ff64d4b1c872ecb41abe6419e
-destination_type: MODEL_OUTPUT
-source_id: m-7300d32ff64d4b1c872ecb41abe6419e
-source_type: RUN_OUTPUT
-step: 0
-tags: {}
