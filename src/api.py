@@ -97,35 +97,6 @@ def metrics():
     })
 
 
-@app.route("/retrain", methods=["POST"])
-def retrain():
-    # Assume new data is sent as JSON or file
-    # Save new data to disk or database
-    # Call your training script (e.g., using subprocess)
-    import subprocess
-    result = subprocess.run(
-        ["python", "src/train_model.py"],
-        capture_output=True,
-        text=True
-    )
-    if result.returncode == 0:
-        result_register = subprocess.run(
-            ["python", "src/register_model.py"],
-            capture_output=True,
-            text=True
-        )
-        if result_register.returncode == 0:
-            return jsonify(
-                {"status": "success", "output": result_register.stdout}
-            ), 200
-        else:
-            return jsonify(
-                {"status": "error", "error": result_register.stderr}
-            ), 500
-    else:
-        return jsonify({"status": "error", "error": result.stderr}), 500
-
-
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({"message": "API is up and running!"})
