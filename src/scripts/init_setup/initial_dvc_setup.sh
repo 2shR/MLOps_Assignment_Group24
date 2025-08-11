@@ -8,4 +8,4 @@ dvc add data/processed/X_test.csv
 dvc add data/processed/y_train.csv
 dvc add data/processed/y_test.csv
 git add data/*.dvc
-git commit -m "Initial commit with DVC"
+git commit -m "DVC files commit for demo"
