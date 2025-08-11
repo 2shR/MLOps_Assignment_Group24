@@ -96,6 +96,17 @@ def metrics():
         "average_latency_ms": round(result[1], 2) if result[1] else None
     })
 
+@app.route("/retrain", methods=["POST"])
+def retrain():
+    # Assume new data is sent as JSON or file
+    # Save new data to disk or database
+    # Call your training script (e.g., using subprocess)
+    import subprocess
+    result = subprocess.run(["python", "src/train_model.py"], capture_output=True, text=True)
+    if result.returncode == 0:
+        return jsonify({"status": "success", "output": result.stdout})
+    else:
+        return jsonify({"status": "error", "error": result.stderr}), 500
 
 @app.route("/", methods=["GET"])
 def home():
